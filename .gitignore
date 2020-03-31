@@ -1,0 +1,10 @@
+# object files
+*.o
+*.obj
+
+# compiled program
+test_arytm_zesp
+
+#emacs backups
+\#*\# 
+*~
