@@ -11,10 +11,10 @@ class Macierz{
   Wektor tab[ROZMIAR];//3 propozycja, sugerowana
 
 public:
-  Macierz();
-  Macierz(Wektor a1, Wektor a2, Wektor a3);
-  const Macierz & transpozycja() const;
-  void transpozycja();
+  Macierz(); //DONE
+  Macierz(Wektor *w1); //DONE
+  Macierz transpozycja() const;
+  //void transpozycja();
 
   const Macierz & odwrotnosc() const;
   void odwrotnosc();//z definicji, gauss
@@ -22,22 +22,22 @@ public:
   double wyznacznik();//laplace, gauss, sarrus
   double wyznacznikGauss(); //double wyznacznik(Metoda = Gauss) <- enum
   
-  Wektor operator * (Wektor W);
-  Macierz operator * (Macierz W);
-  Macierz operator + (Macierz W);
-  Macierz operator - (Macierz W);
-  Macierz operator * (double l);
+  Wektor operator * (const Wektor W) const; //DONE
+  Macierz operator * ( Macierz W) const; //DONE
+  Macierz operator + (const Macierz W) const; //DONE
+  Macierz operator - (const Macierz W) const; //DONE
+  Macierz operator * (const double l) const; //DONE
 
-  bool operator == (const Macierz & W2) const;
-  bool operator != (const Macierz & W2) const;
+  bool operator == (const Macierz & W2) const; //DONE
+  bool operator != (const Macierz & W2) const; //DONE
 
-  const Wektor & operator[] (int index) const;
-  Wektor & operator[] (int index); // M[2][0] - zerowy element drugiego wektora macierzy
+  const Wektor & operator[] (int index) const; //DONE
+  Wektor & operator[] (int index); // M[2][0]-[Wektor][Element] DONE
 
   const double & operator() (int ind1, int ind2) const;
   double & operator() (int ind1, int ind2); //M(2,0)
 
-  const Wektor & zwroc_kolumne(int ind); //dla wierszowej
+  Wektor zwroc_kolumne(int ind) const; //dla wierszowej //DONE
   void zmien_kolumne(int ind, Wektor nowa);
 };
 
@@ -50,7 +50,7 @@ public:
  * znalezc w pliku:
  *    ~bk/edu/kpo/zalecenia.txt 
  */
-istream& operator >> (istream &Strm, Macierz &m1);
+istream& operator >> (istream &Strm, Macierz &m1); //DONE
 
 /*
  * To przeciazenie trzeba opisac. Co ono robi. Jaki format
@@ -59,7 +59,7 @@ istream& operator >> (istream &Strm, Macierz &m1);
  * znalezc w pliku:
  *    ~bk/edu/kpo/zalecenia.txt 
  */
-ostream& operator << (ostream &Strm, const Macierz &m1);
+ostream& operator << (ostream &Strm, const Macierz &m1); //DONE
 
 
 #endif

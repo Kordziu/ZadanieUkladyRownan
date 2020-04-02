@@ -21,25 +21,43 @@ int main()
   
   cout << endl << " Start programu " << endl << endl;
   //  cin >> w1;
-
+  
   //cout << w1 << endl;
-  //double init[]={1,1,1};
-  //double init2[]={2,2,2};
-  // double init3[]={3,3,3}
-  //Wektor w2(init2);
-    Macierz m1;
-  cout << m1;
-  
-  
+  double init[]={1,2,3};
+  double init2[]={4,5,6};
+  double init3[]={7,8,9};
+     
+     Wektor w1(init);
+     Wektor w2(init2);
+     Wektor w3(init3);
+
+     Wektor tablica[]={w1,w2,w3};
+     Wektor tablica2[]={w3,w2,w1};
+     
+     Macierz m1(tablica);
+     // Macierz m2(tablica2);
+      
+    cout << "macierz m1: " << endl << m1;
+    //cout << "macierz m2: " << m2;
+    cout << endl;
+    Macierz wynik;
+    wynik = m1.transpozycja();
+    
+     cout << "macierz transponowana"<< endl << wynik << endl;
+    //Macierz m2;
+    //cout << "wpisz macierz" << endl;
+    //cin >> m2;
+    //cout << m2;
+    
   //Wektor wynik;
   // double liczba;
   
   
-  // if(w1!=w2){
-  //  cout<<"Lipa nie sa rowne (działa)"<< endl;
-  // }
-  //else
-  //  cout<<"jest ok"<<endl;
+    //  if(m1==m2){
+    //cout<<"macierze równe"<< endl;
+    // }
+    // else
+    //cout<<"macierze nierówne"<<endl;
   // liczba = w1.dlugosc();
   // wynik = w1+w2;
   //wynik = w1-w2;

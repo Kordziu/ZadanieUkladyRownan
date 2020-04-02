@@ -113,9 +113,9 @@ double Wektor::dlugosc() const{
 }
 
 //przeciazenie operatora <<
-ostream & operator << (ostream &os, Wektor &w1){
+ostream & operator << (ostream &os, const Wektor &w1){
   int i;
-
+  
   os <<'[';
   for(i=0;i<ROZMIAR;i++){
     os << w1[i] << ',';

@@ -45,6 +45,6 @@ istream& operator >> (istream &os, Wektor &w1);
  * znalezc w pliku:
  *    ~bk/edu/kpo/zalecenia.txt 
  */
-ostream& operator << (ostream &os, Wektor &w1);
+ostream& operator << (ostream &os, const Wektor &w1);
 
 #endif
