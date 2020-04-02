@@ -13,11 +13,10 @@ public:
   Wektor(double * tab);
   
   const Wektor & operator += (const Wektor & W2);
-  const Wektor & operator + (const Wektor & W2) const;
-  const Wektor & operator - (const Wektor & W2) const;
+  Wektor operator + (const Wektor & W2) const;
+  Wektor operator - (const Wektor & W2) const;
   double operator * (const Wektor & W2) const; //iloczyn skalarny
-  const Wektor & operator * (double liczba) const;
-  //mnożenie przez liczbę
+  Wektor operator * (double liczba) const; //mnożenie wektor*liczba
 
   bool operator == (const Wektor & W2) const;
   bool operator != (const Wektor & W2) const;
@@ -28,7 +27,7 @@ public:
 
   double & operator [] (int index);
 };
-
+//mnozenie liczba*wektor
 Wektor operator * (double l1, Wektor W2);
 /*
  * To przeciazenie trzeba opisac. Co ono robi. Jaki format

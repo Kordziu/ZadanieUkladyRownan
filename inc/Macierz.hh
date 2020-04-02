@@ -5,8 +5,9 @@
 #include "rozmiar.h"
 #include <iostream>
 
+using namespace std;
 
-class Macierz {
+class Macierz{
   Wektor tab[ROZMIAR];//3 propozycja, sugerowana
 
 public:
@@ -49,7 +50,7 @@ public:
  * znalezc w pliku:
  *    ~bk/edu/kpo/zalecenia.txt 
  */
-std::istream& operator >> (std::istream &Strm, Macierz &Mac);
+istream& operator >> (istream &Strm, Macierz &m1);
 
 /*
  * To przeciazenie trzeba opisac. Co ono robi. Jaki format
@@ -58,7 +59,7 @@ std::istream& operator >> (std::istream &Strm, Macierz &Mac);
  * znalezc w pliku:
  *    ~bk/edu/kpo/zalecenia.txt 
  */
-std::ostream& operator << (std::ostream &Strm, const Macierz &Mac);
+ostream& operator << (ostream &Strm, const Macierz &m1);
 
 
 #endif
