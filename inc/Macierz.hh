@@ -1,4 +1,4 @@
-#ifndef MACIERZ_HH
+ #ifndef MACIERZ_HH
 #define MACIERZ_HH
 
 #include "Wektor.hh"
@@ -13,7 +13,7 @@ class Macierz{
 public:
   Macierz(); //DONE
   Macierz(Wektor *w1); //DONE
-  Macierz transpozycja() const;
+  Macierz transpozycja() const; //DONE
   //void transpozycja();
 
   const Macierz & odwrotnosc() const;
@@ -34,11 +34,11 @@ public:
   const Wektor & operator[] (int index) const; //DONE
   Wektor & operator[] (int index); // M[2][0]-[Wektor][Element] DONE
 
-  const double & operator() (int ind1, int ind2) const;
-  double & operator() (int ind1, int ind2); //M(2,0)
+  //const double & operator() (int ind1, int ind2) const;
+  // double & operator() (int ind1, int ind2); //M(2,0)
 
   Wektor zwroc_kolumne(int ind) const; //dla wierszowej //DONE
-  void zmien_kolumne(int ind, Wektor nowa);
+  Macierz zmien_kolumne(int ind, Wektor nowa); //DONE
 };
 
 

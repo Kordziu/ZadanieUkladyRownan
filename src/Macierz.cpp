@@ -111,10 +111,18 @@ Wektor Macierz::zwroc_kolumne(int nr_kolumny) const{
   return kolumna;
 }
 
+//zamiana kolumny na dowolny podany wektor
+Macierz Macierz::zmien_kolumne(int nr_kolumny, Wektor nowa){
+  Macierz pom;
+  pom = transpozycja();
+  pom[nr_kolumny] = nowa;
+  pom = pom.transpozycja();
+  return pom;
+}
+
 
 //konstruktor bezparametryczny
 Macierz::Macierz(){
-
   
   for (int i = 0; i < ROZMIAR; i++){
     tab[i] = Wektor();

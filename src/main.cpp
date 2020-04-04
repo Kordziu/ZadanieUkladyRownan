@@ -26,11 +26,12 @@ int main()
   double init[]={1,2,3};
   double init2[]={4,5,6};
   double init3[]={7,8,9};
-     
+  double zmiana[]={0,0,0};   
      Wektor w1(init);
      Wektor w2(init2);
      Wektor w3(init3);
-
+     Wektor new_column(zmiana);
+     
      Wektor tablica[]={w1,w2,w3};
      Wektor tablica2[]={w3,w2,w1};
      
@@ -41,9 +42,11 @@ int main()
     //cout << "macierz m2: " << m2;
     cout << endl;
     Macierz wynik;
-    wynik = m1.transpozycja();
+    wynik = m1.zmien_kolumne(2, new_column);
     
-     cout << "macierz transponowana"<< endl << wynik << endl;
+
+    // cout << wynik << endl;
+    cout << "zmieniona kolumna"<< endl << wynik << endl;
     //Macierz m2;
     //cout << "wpisz macierz" << endl;
     //cin >> m2;
@@ -51,7 +54,7 @@ int main()
     
   //Wektor wynik;
   // double liczba;
-  
+                   
   
     //  if(m1==m2){
     //cout<<"macierze równe"<< endl;
