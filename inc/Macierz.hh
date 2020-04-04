@@ -13,14 +13,15 @@ class Macierz{
 public:
   Macierz(); //DONE
   Macierz(Wektor *w1); //DONE
+  Macierz(const Macierz &m); //DONE
   Macierz transpozycja() const; //DONE
   //void transpozycja();
 
   const Macierz & odwrotnosc() const;
   void odwrotnosc();//z definicji, gauss
 
-  double wyznacznik();//laplace, gauss, sarrus
-  double wyznacznikGauss(); //double wyznacznik(Metoda = Gauss) <- enum
+  double wyznacznik() const;//laplace, gauss, sarrus DONE
+  //double wyznacznikGauss(); //double wyznacznik(Metoda = Gauss) <- enum
   
   Wektor operator * (const Wektor W) const; //DONE
   Macierz operator * ( Macierz W) const; //DONE
@@ -39,6 +40,7 @@ public:
 
   Wektor zwroc_kolumne(int ind) const; //dla wierszowej //DONE
   Macierz zmien_kolumne(int ind, Wektor nowa); //DONE
+  double przekatna() const;
 };
 
 

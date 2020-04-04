@@ -23,9 +23,9 @@ int main()
   //  cin >> w1;
   
   //cout << w1 << endl;
-  double init[]={1,2,3};
-  double init2[]={4,5,6};
-  double init3[]={7,8,9};
+  double init[]={14,-5,10};
+  double init2[]={2,3,-7};
+  double init3[]={1,11,-4};
   double zmiana[]={0,0,0};   
      Wektor w1(init);
      Wektor w2(init2);
@@ -41,12 +41,12 @@ int main()
     cout << "macierz m1: " << endl << m1;
     //cout << "macierz m2: " << m2;
     cout << endl;
-    Macierz wynik;
-    wynik = m1.zmien_kolumne(2, new_column);
+    double wynik;
+    wynik = m1.wyznacznik();
     
 
     // cout << wynik << endl;
-    cout << "zmieniona kolumna"<< endl << wynik << endl;
+    cout << "Wyznacznik "<< endl << wynik << endl;
     //Macierz m2;
     //cout << "wpisz macierz" << endl;
     //cin >> m2;
