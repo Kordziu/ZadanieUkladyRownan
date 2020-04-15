@@ -151,6 +151,7 @@ istream & operator >> (istream &is, Macierz &m1){
   for(int i = 0; i < ROZMIAR; i++){
     
     is >> m1[i];
+    
   }
 
   return is;
@@ -161,7 +162,7 @@ istream & operator >> (istream &is, Macierz &m1){
 ostream & operator << (ostream &os, const Macierz &m1){
 
    for(int i= 0; i < ROZMIAR; i++){
-     os << m1[i] << endl;
+     os << m1[i];
    }
    os << endl;
   return os;
@@ -184,7 +185,7 @@ Wektor& Macierz::operator[] (int index){
     return tab[index];
   }
 
-//Funkcja licząca iloczyn wyrazów po przekątnej macierzy
+//Funkcja licząca iloczyn wyrazów po przekątnej  ** WRZUCIĆ JAKO PRIVATE **
 double Macierz::przekatna() const {
   double wynik = 1.0;
     for(int i = 0; i < ROZMIAR; i++) {

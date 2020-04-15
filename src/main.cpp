@@ -1,25 +1,25 @@
 #include <iostream>
+#include <fstream>
 #include "Wektor.hh"
 #include "Macierz.hh"
 #include "UkladRownanLiniowych.hh"
 
-
-
 using namespace std;
-
-/*
- * Tu definiujemy pozostale funkcje.
- * Lepiej jednak stworzyc dodatkowy modul
- * i tam je umiescic. Ten przyklad pokazuje
- * jedynie absolutne minimum.
- */
 
 
 int main()
-{
-  //  UkladRownanLiniowych   UklRown;   // To tylko przykladowe definicje zmiennej
+{ 
   
-  cout << endl << " Start programu " << endl << endl;
+  //ifstream data;
+  //data.open("data");
+  UkladRownan U;
+  cin >> U;
+  cout << U << endl;
+  //data.close();
+  return 0;
+  
+
+  /*cout << endl << " Start programu " << endl << endl;
   //  cin >> w1;
   
   //cout << w1 << endl;
@@ -68,5 +68,5 @@ int main()
     //cout << "wektor 2: " << w2 << endl;
   // cout << "Wynik działania: " << liczba << endl;
   //  cout << "Wynik dodawania: " << wynik <<endl;
-  exit(1);
+  */
 }
