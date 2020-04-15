@@ -36,22 +36,23 @@ Wektor UkladRownan::Oblicz() const {
   Wektor wynik;
   Macierz temp = get_A(); // Kopia macierzy głównej, żeby nie pracować na oryginale
   double tab_wyznacznikow[ROZMIAR]; // Tablica z wynikami x1, x2... żeby potem wrzucić ją do Wektora wynikowego
-  double wyznacznik_glowny;
-
-  wyznacznik_glowny = get_A().wyznacznik();
-
+  double wyznacznik_glowny = get_A().wyznacznik();
+  Wektor wolne = get_b();
+  
+  // cout << wyznacznik_glowny << endl;
   if(abs(wyznacznik_glowny) > dokladnosc) {
   
   for(int i = 0; i < ROZMIAR; i++) {
-    temp.zmien_kolumne(i, get_b());
+    temp = temp.zmien_kolumne(i, wolne);
     tab_wyznacznikow[i] = temp.wyznacznik();
-    tab_wyznacznikow[i] /= wyznacznik_glowny;
+    tab_wyznacznikow[i] = tab_wyznacznikow[i] / wyznacznik_glowny;
     temp = get_A();
     }
   }
   else
     {
       cerr << "Wyznacznik macierzy głównej wynosi 0. Uklad równań nie ma rozwiązania.";
+      return 0;
     }
   return Wektor(tab_wyznacznikow);
 }

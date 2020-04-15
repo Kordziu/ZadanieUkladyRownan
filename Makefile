@@ -23,5 +23,5 @@ obj/Macierz.o: src/Macierz.cpp inc/Macierz.hh
 obj/Wektor.o: src/Wektor.cpp inc/Wektor.hh inc/rozmiar.h
 	g++ ${CPPFLAGS} -o obj/Wektor.o src/Wektor.cpp
 
-clean:
+clear:
 	rm -f obj/*.o uklad_rownan

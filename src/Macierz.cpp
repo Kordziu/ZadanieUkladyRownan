@@ -121,7 +121,6 @@ Macierz Macierz::zmien_kolumne(int nr_kolumny, Wektor nowa){
   return pom;
 }
 
-
 //konstruktor bezparametryczny
 Macierz::Macierz(){
   
