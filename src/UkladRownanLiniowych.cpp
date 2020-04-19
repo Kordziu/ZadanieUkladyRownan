@@ -5,16 +5,6 @@
 
 using namespace std;
 
-// Zwracanie macierzy glownej
-//const Macierz & UkladRownan::get_A() const {
-// return A;
-//}
-
-//Zwracanie wektora wyrazow wolnych
-//const Wektor & UkladRownan::get_b() const {
-//  return b;
-//}
-
 //Wektor błędu
 Wektor UkladRownan::w_bledu() const {
   Wektor wynik;
@@ -37,22 +27,21 @@ Wektor UkladRownan::Oblicz() const {
   Macierz temp = get_A(); // Kopia macierzy głównej, żeby nie pracować na oryginale
   double tab_wyznacznikow[ROZMIAR]; // Tablica z wynikami x1, x2... żeby potem wrzucić ją do Wektora wynikowego
   double wyznacznik_glowny = get_A().wyznacznik();
-  Wektor wolne = get_b();
+  Wektor wolne = get_b(); // Kopia wektora wyrazów wolnych
   
-  // cout << wyznacznik_glowny << endl;
-  if(abs(wyznacznik_glowny) > dokladnosc) {
+  if(abs(wyznacznik_glowny) > dokladnosc) { // Jeśli wyznacznik jest różny od 0
   
   for(int i = 0; i < ROZMIAR; i++) {
-    temp = temp.zmien_kolumne(i, wolne);
-    tab_wyznacznikow[i] = temp.wyznacznik();
-    tab_wyznacznikow[i] = tab_wyznacznikow[i] / wyznacznik_glowny;
-    temp = get_A();
+    temp = temp.zmien_kolumne(i, wolne); //zamien kolumnę na wektor wyrazów wolnych
+    tab_wyznacznikow[i] = temp.wyznacznik(); //wyliczenie wyznacznika nowej macierzy
+    tab_wyznacznikow[i] = tab_wyznacznikow[i] / wyznacznik_glowny; //wyliczenie wartości xi
+    temp = get_A(); // przywrócenie kopii oryginalnej macierzy
     }
   }
-  else
+  else //w innym wypadku wyświetl komunikat i wyjdź z programu
     {
-      cerr << "Wyznacznik macierzy głównej wynosi 0. Uklad równań nie ma rozwiązania.";
-      return 0;
+      cerr << "Wyznacznik macierzy głównej wynosi 0. Uklad równań nie ma rozwiązania." << endl;
+      exit(0);
     }
   return Wektor(tab_wyznacznikow);
 }

@@ -10,7 +10,7 @@ using namespace std;
 //dodaj i podstaw wynik za podany wektor
 const Wektor& Wektor::operator += (const Wektor &w1){
   int i;
-  for(i=0; i < ROZMIAR; i++){
+  for(i = 0; i < ROZMIAR; i++){
 
    this->tab[i] = this->tab[i] + w1[i]; 
   };
@@ -21,7 +21,7 @@ const Wektor& Wektor::operator += (const Wektor &w1){
   Wektor Wektor::operator + (const Wektor &w1) const{
   Wektor wynik;
   int i;
-  for(i=0; i < ROZMIAR; i++){
+  for(i = 0; i < ROZMIAR; i++){
 
     wynik[i] = this->tab[i] + w1[i];
   };
@@ -33,7 +33,7 @@ const Wektor& Wektor::operator += (const Wektor &w1){
   Wektor Wektor::operator - (const Wektor &w1) const{
   Wektor wynik;
   int i;
-    for(i=0; i < ROZMIAR; i++){
+    for(i = 0; i < ROZMIAR; i++){
 
     wynik[i] = this->tab[i] - w1[i];
   };
@@ -46,11 +46,11 @@ double Wektor::operator * (const Wektor &w1) const{
   Wektor tmp;
   double wynik=0;
   int i;
-    for(i=0; i < ROZMIAR; i++){
+    for(i = 0; i < ROZMIAR; i++){
       tmp[i] = this->tab[i] * w1[i];
   };
 
-    for(i=0; i<ROZMIAR; i++){
+    for(i = 0; i < ROZMIAR; i++){
       wynik = wynik + tmp[i];
     }
   return wynik;
@@ -60,7 +60,7 @@ double Wektor::operator * (const Wektor &w1) const{
 Wektor Wektor::operator * (double liczba) const{
   Wektor wynik;
 
-  for(int i = 0; i<ROZMIAR; i++){
+  for(int i = 0; i < ROZMIAR; i++){
     wynik[i] = liczba * this->tab[i];
   }
 
@@ -71,7 +71,7 @@ Wektor Wektor::operator * (double liczba) const{
 Wektor operator * (double liczba, Wektor w1){
   Wektor wynik;
 
-  for(int i = 0; i<ROZMIAR; i++){
+  for(int i = 0; i < ROZMIAR; i++){
     wynik[i] = liczba * w1[i];
   }
 
@@ -82,7 +82,7 @@ Wektor operator * (double liczba, Wektor w1){
 bool Wektor::operator == (const Wektor &w1) const{
 
   
-  for(int i = 0; i<ROZMIAR; i++){
+  for(int i = 0; i < ROZMIAR; i++){
     if(this->tab[i]!=w1[i]){
       return false;
     }
@@ -93,7 +93,7 @@ bool Wektor::operator == (const Wektor &w1) const{
 //porownanie != dwóch wektorów
 bool Wektor::operator != (const Wektor &w1) const{
  
-  for(int i = 0; i<ROZMIAR; i++){
+  for(int i = 0; i < ROZMIAR; i++){
     if(this->tab[i]==w1[i]){
       return false;
     }
@@ -105,7 +105,7 @@ bool Wektor::operator != (const Wektor &w1) const{
 double Wektor::dlugosc() const{
   double dlugosc = 0;
 
-  for(int i = 0; i<ROZMIAR; i++){
+  for(int i = 0; i < ROZMIAR; i++){
   dlugosc = dlugosc + this->tab[i] * this->tab[i];
   }
 
@@ -117,8 +117,11 @@ ostream & operator << (ostream &os, const Wektor &w1){
   int i;
   
   os <<'[';
-  for(i=0;i<ROZMIAR;i++){
-    os << w1[i] << ',';
+  for(i = 0; i < ROZMIAR; i++){
+    os << w1[i];
+    if(i < ROZMIAR-1){
+      os << ',';
+    }
   }
   os << ']';
   os << endl;
@@ -138,12 +141,12 @@ istream & operator >> (istream &is, Wektor &w1){
 
 //kontruktor bezparametryczny
 Wektor::Wektor(){
-  for(int i = 0; i<ROZMIAR; i++){
-    tab[i]=0.0;
+  for(int i = 0; i < ROZMIAR; i++){
+    tab[i] = 0.0;
   }
 }
 
- //przeciazenie []
+//przeciazenie []
 const double& Wektor::operator[] (int index) const{
     if (index < 0 || index >= ROZMIAR){
       cerr << "Wartość spoza zakresu" << endl;
@@ -162,8 +165,8 @@ double& Wektor::operator[] (int index){
 
 //konstruktor parametryczny
 Wektor::Wektor(double * tab){
-   for(int i=0; i<ROZMIAR; i++){
-   this->tab[i]=tab[i];
+   for(int i = 0; i < ROZMIAR; i++){
+   this->tab[i] = tab[i];
   }
   
 }

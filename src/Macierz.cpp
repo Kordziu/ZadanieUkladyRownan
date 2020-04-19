@@ -3,12 +3,6 @@
 #include <cmath>
 
 using namespace std;
-/*
- *  Tutaj nalezy zdefiniowac odpowiednie metody
- *  klasy Macierz, ktore zawieraja wiecej kodu
- *  niz dwie linijki.
- *  Mniejsze metody mozna definiwac w ciele klasy.
- */
 
 //Transpozycja
 Macierz Macierz::transpozycja() const{
@@ -51,7 +45,7 @@ Macierz Macierz::operator + (const Macierz m1) const{
 
   for(int i = 0; i < ROZMIAR; i++){
     for(int j = 0; j < ROZMIAR; j++){
-    wynik[i] = tab[i]+m1[i];
+    wynik[i] = tab[i] + m1[i];
     }
   }
   return wynik;
@@ -63,7 +57,7 @@ Macierz Macierz::operator - (const Macierz m1) const{
 
   for(int i = 0; i < ROZMIAR; i++){
     for(int j = 0; j < ROZMIAR; j++){
-    wynik[i] = tab[i]-m1[i];
+    wynik[i] = tab[i] - m1[i];
     }
   }
   return wynik;
@@ -83,7 +77,7 @@ Macierz Macierz::operator * (const double liczba) const{
 bool Macierz::operator == (const Macierz &m1) const{
 
   for(int i = 0; i < ROZMIAR; i++){
-    if(tab[i]!=m1[i]){
+    if(tab[i] != m1[i]){
       return false;
     }
   }
@@ -94,7 +88,7 @@ bool Macierz::operator == (const Macierz &m1) const{
 bool Macierz::operator != (const Macierz &m1) const{
 
   for(int i = 0; i < ROZMIAR; i++){
-    if(tab[i]!=m1[i]){
+    if(tab[i] != m1[i]){
       return true;
     }
   }
@@ -131,7 +125,7 @@ Macierz::Macierz(){
 
 //konstruktor parametryczny
 Macierz::Macierz(Wektor *w1){
-  for(int i=0; i < ROZMIAR; i++){
+  for(int i = 0; i < ROZMIAR; i++){
     tab[i] = w1[i];
   }
 }
@@ -160,7 +154,7 @@ istream & operator >> (istream &is, Macierz &m1){
 //przeciazenie operatora <<
 ostream & operator << (ostream &os, const Macierz &m1){
 
-   for(int i= 0; i < ROZMIAR; i++){
+   for(int i = 0; i < ROZMIAR; i++){
      os << m1[i];
    }
    os << endl;
